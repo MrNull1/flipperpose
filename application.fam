@@ -1,0 +1,19 @@
+# For details & more /
+# options, see documentation/AppManifests.md in firmware repo
+
+App(
+    appid="flipperpose",  # Must be unique
+    name="Flipper Poser",  # Displayed in menus
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="flipperpose",
+
+    stack_size=2 * 1024,
+    fap_category="Games",
+    # Optional values
+    # fap_version="0.1",
+    fap_icon="icon.png",  # 10x10 1-bit PNG
+    fap_description="A simple app to pose your flipper buddy for photos!",
+    fap_author="mrnullone",
+    fap_weburl="https://github.com/user/template",
+    fap_icon_assets="images",  # Image assets to compile for this application
+)
