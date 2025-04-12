@@ -10,7 +10,7 @@ App(
     stack_size=2 * 1024,
     fap_category="Games",
     # Optional values
-    # fap_version="0.1",
+    fap_version="1.0",
     fap_icon="icon.png",  # 10x10 1-bit PNG
     fap_description="A simple app to pose your flipper buddy for photos!",
     fap_author="mrnullone",
