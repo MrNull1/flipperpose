@@ -8,6 +8,7 @@ typedef struct {
     int screen_no;
     bool back_pressed;
     bool running;
+    bool goodart;
 } GameState;
 
 static void render_callback(Canvas* canvas, void* context) {
@@ -21,14 +22,19 @@ static void render_callback(Canvas* canvas, void* context) {
         &I_1,
         &I_2,
         &I_3,
-        &I_4};
-
+        &I_4,
+	&I_1g
+	};
+    if (!state->goodart) {
     if(state->screen_no >= 1 && state->screen_no <= 4) {
         canvas_draw_icon(canvas, 0, 0, icons[state->screen_no]);
     } else {
         canvas_set_font(canvas, FontPrimary);
         canvas_draw_str(canvas, 10, 30, "Invalid screen");
     }
+    } else {
+	canvas_draw_icon(canvas, 0, 0, icons[state->screen_no + 4]
+}
 }
 
 static void input_callback(InputEvent* event, void* context) {
@@ -56,6 +62,9 @@ static void input_callback(InputEvent* event, void* context) {
     case InputKeyLeft:
         state->screen_no = 4;
         break;
+    case InputKeyOk:
+	state->goodart = !state->goodart;
+	break;
     default:
         break;
     }
@@ -65,7 +74,7 @@ int32_t flipperpose(void* p) {
     UNUSED(p);
 
     // Initialize game state
-    GameState game_state = {.screen_no = 1, .back_pressed = false, .running = true};
+    GameState game_state = {.screen_no = 1, .back_pressed = false, .running = true, .goodart = false};
 
     // Set up GUI
     Gui* gui = furi_record_open(RECORD_GUI);
