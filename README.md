@@ -6,3 +6,5 @@ You can also use the `Ok` button to switch between good and bad art.
 (oh, and I made this entirely in vim because I hate myself)
 
 If you want to see a feature added, feel free to open an issue on github.
+
+Thanks to Danucosuko on Github for the better art.
